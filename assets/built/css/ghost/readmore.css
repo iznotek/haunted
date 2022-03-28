@@ -1,0 +1,2 @@
+.gh-readmore{font-size:2.6rem;padding:8vmin 4vmin}.gh-readmore-inner{grid-gap:8vmin;display:grid;grid-template-columns:1fr 1fr}.gh-readmore-prev{justify-content:flex-end;text-align:right}.gh-readmore a{color:currentColor;display:flex;text-decoration:none}.gh-readmore h4{font-size:inherit;width:100%}.gh-readmore svg{display:inline-block;height:1em;margin:.15em 0 0;vertical-align:middle}.gh-readmore h4+svg,.gh-readmore svg+h4{margin-left:2vmin}@media (max-width:700px){.gh-readmore{font-size:1.6rem}.gh-readmore svg{margin:.1em 0 0}}
+/*# sourceMappingURL=readmore.css.map */

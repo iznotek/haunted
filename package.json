@@ -4,8 +4,7 @@
     "demo": "https://starter.ghost.io",
     "version": "1.0.0",
     "engines": {
-        "ghost": ">=4.0.0",
-        "ghost-api": "v4"
+        "ghost": ">=4.0.0"
     },
     "license": "MIT",
     "screenshots": {
@@ -42,15 +41,17 @@
         "url": "https://github.com/TryGhost/Starter.git"
     },
     "bugs": "https://github.com/TryGhost/Starter/issues",
-    "contributors": "https://github.com/TryGhost/Starter/graphs/contributors",
     "devDependencies": {
         "autoprefixer": "10.4.4",
         "beeper": "2.1.0",
+        "browser-sync": "^2.27.9",
         "cssnano": "5.1.5",
+        "gsap": "^3.9.1",
         "gscan": "4.25.2",
         "gulp": "4.0.2",
         "gulp-livereload": "4.0.2",
         "gulp-postcss": "9.0.1",
+        "gulp-sass": "^5.1.0",
         "gulp-sourcemaps": "3.0.0",
         "gulp-uglify": "3.0.2",
         "gulp-util": "3.0.8",
@@ -58,7 +59,8 @@
         "gulp-zip": "5.1.0",
         "postcss": "8.4.12",
         "postcss-color-mod-function": "3.0.3",
-        "postcss-easy-import": "4.0.0"
+        "postcss-easy-import": "4.0.0",
+        "sass": "^1.49.9"
     },
     "browserslist": [
         "defaults"
