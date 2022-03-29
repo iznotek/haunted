@@ -1,21 +1,21 @@
 .dark-fade {
-	background-image: linear-gradient(to right, #434343 0%, black 100%);
+   background-image: $gr-dark-fade;
 }
 .cool-gray {
-	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+	background-image: $gr-cool-grey;
 }
 .blue-night {
-	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+	background-image: $gr-blue-night;
 }
 .slate-gray {
-	background-image: linear-gradient(-20deg, #616161 0%, #9bc5c3 100%);
+	background-image: $gr-slate-gray;
 }
 .metallic-fade {
-	background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
+	background-image: $gr-metallic-fade;
 }
 .sunset-purple {
-	background-image: linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%);
+	background-image: $gr-sunset-purple;
 }
 .morpheus {
-	background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+	background-image: $gr-morpheus;
 }

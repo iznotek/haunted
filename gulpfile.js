@@ -5,6 +5,7 @@ const pump = require('pump');
 // var livereload = require('gulp-livereload');
 var sass = require('gulp-sass')(require('sass'));
 var postcss = require('gulp-postcss');
+var tailwindcss = require('tailwindcss');
 var zip = require('gulp-zip');
 var uglify = require('gulp-uglify');
 var beeper = require('beeper');
@@ -53,7 +54,8 @@ async function hbs(done) {
 
 async function css(done) {
 	var processors = [
-		easyimport,
+		tailwindcss(),
+		easyimport(),
 		colorFunction(),
 		autoprefixer(),
 		cssnano()
@@ -64,7 +66,6 @@ async function css(done) {
 		sass().on('error', sass.logError),
 		postcss(processors),
 		dest('assets/built/css', {sourcemaps: '.'}),
-		//livereload()
 		browsersync.stream()
 	], handleError(done));
 }
@@ -74,7 +75,6 @@ async function js(done) {
 		src('assets/js/*.js', {sourcemaps: true}),
 		uglify(),
 		dest('assets/built/js', {sourcemaps: '.'}),
-		//livereload()
 		browsersync.stream()
 	], handleError(done));
 }

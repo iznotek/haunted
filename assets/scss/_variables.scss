@@ -108,24 +108,11 @@ $header-bg__color:    _slate(8);
 $footer-pt:           var(--footer-pt);
 $footer-pb:           var(--footer-pb);
 
-
-	$gr-darkfade: linear-gradient(to right, #434343 0%, black 100%);
-
-.cool-gray {
-	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
-}
-.blue-night {
-	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
-}
-.slate-gray {
-	background-image: linear-gradient(-20deg, #616161 0%, #9bc5c3 100%);
-}
-.metallic-fade {
-	background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
-}
-.sunset-purple {
-	background-image: linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%);
-}
-.morpheus {
-	background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
-}
+// Gradient Backgrounds
+$gr-dark-fade:        linear-gradient(to right, #434343 0%, black 100%);
+$gr-cool-grey:        linear-gradient(60deg, #29323c 0%, #485563 100%);
+$gr-blue-night:       linear-gradient(to right, #243949 0%, #517fa4 100%);
+$gr-slate-gray:       linear-gradient(-20deg, #616161 0%, #9bc5c3 100%);
+$gr-metallic-fade:    linear-gradient(to right, #d7d2cc 0%, #304352 100%);
+$gr-sunset-purple:    linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%);
+$gr-morpheus:         linear-gradient(to top, #30cfd0 0%, #330867 100%);
