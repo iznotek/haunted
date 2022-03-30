@@ -1,9 +1,9 @@
 const {series, watch, src, dest, parallel} = require('gulp');
+const sass = require('gulp-sass')(require('sass'));
 const pump = require('pump');
 
 // gulp plugins and utils
 // var livereload = require('gulp-livereload');
-var sass = require('gulp-sass')(require('sass'));
 var postcss = require('gulp-postcss');
 var tailwindcss = require('tailwindcss');
 var zip = require('gulp-zip');
@@ -62,7 +62,7 @@ async function css(done) {
 	];
 
 	pump([
-		src(['assets/css/**/*.css', 'assets/scss/**/*.scss'], { sourcemaps: true }),
+		src(['assets/scss/main.scss', 'assets/css/tail.css'], { sourcemaps: true }),
 		sass().on('error', sass.logError),
 		postcss(processors),
 		dest('assets/built/css', {sourcemaps: '.'}),
