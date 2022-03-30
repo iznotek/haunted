@@ -1,40 +1,27 @@
 module.exports = {
-	// Browsersync port
-	PORT: 8080,
-
-	// Purgecss settings
-	PURGECSS: {
-		whitelist: ['w-100', 'vw-100'],
-		whitelistPatterns: [/order/gm, /text/gm],
-		whitelistPatternsChildren: []
+	config: {
+		tailwindjs: "./tailwind.config.js",
+		port: 8080
 	},
-
-	// Gulp path references
-	PATHS: {
-		// Path to `dist` folder
-		// dist: 'dist',
-
-		// Path to static assets & ignore some folders
-		assets: ['assets/**/*', '!assets/{img,js,css}/**'],
-
-		// Path to images & ignore some folders
-		images: [
-			'assets/img/**/*.{jpg,jpeg,png,gif,svg,webp}',
-			'!assets/fonts/**'
-		],
-
-		// Path to static files to copy to `dist`
-		// staticFiles: [
-		// 	'src/robots.txt',
-		// 	'src/favicon.ico',
-		// 	'src/.htaccess',
-		// 	'src/site.webmanifest'
-		// ],
-
-		// Additional JS files to copy to "dist/assets/js"
-		additionalJsFiles2Copy: ['assets/js/lib/**/*.js'],
-
-		// Additional CSS files to copy to "dist/assets/css"
-		additionalCssFiles2Copy: ['assets/css/lib/**/*.css']
+	paths: {
+		root: "",
+		src: {
+			base: "assets",
+			css: "assets/scss",
+			js: "assets/js",
+			img: "assets/img"
+		},
+		dist: {
+			base: "assets/dist",
+			css: "assets/dist/css",
+			js: "assets/dist/js",
+			img: "assets/dist/img"
+		},
+		build: {
+			base: "assets/built",
+			css: "assets/built/css",
+			js: "assets/built/js",
+			img: "assets/built/img"
+		}
 	}
 }

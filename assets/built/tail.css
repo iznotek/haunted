@@ -468,8 +468,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 16rem;
 }.w-full {
   width: 100%;
-}.w-\[this-is\\\\\]w-\\\\\[weird-but-valid\] {
-  width: this-is\\]w-\\[weird-but-valid;
 }.max-w-4xl {
   max-width: 56rem;
 }.flex-shrink {

@@ -1,3 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "tailstyles/global";
+
 @import "toolkit/tools";
 
 @import "variables";
@@ -6,18 +12,19 @@
 @import "core/mixins";
 @import "core/flex-grid";
 
-@import "config/reset";
-@import "config/normalize";
+//@import "config/reset";
+//@import "config/normalize";
 
-@import "utilities/layout";
-@import "utilities/transitions";
-@import "utilities/animations";
-
-@import "components/global";
-@import "components/typography";
-@import "components/media";
-@import "components/buttons";
+@import "utility/layout";
+@import "utility/transitions";
+@import "utility/animations";
+@import "utility/gradients";
 
 @import "helpers/ion-icons";
-
-@import "utilities/gradients";
+////
+@import "modules/global";
+@import "modules/typography";
+@import "modules/media";
+//@import "modules/buttons";
+@import "modules/footer";
+//

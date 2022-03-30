@@ -5,8 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	 <link rel="stylesheet" type="text/css" href="{{asset "built/css/tail.css"}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset "built/css/main.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "dist/css/style.css"}}" />
 
     <title>{{meta_title}}</title>
 
@@ -15,67 +14,48 @@
 
 </head>
 <body class="{{body_class}}">
-<div class="gh-viewport">
 
-<header id="gh-head" class="gh-head">
-    <nav class="gh-head-inner gh-container">
-
-        <div class="gh-head-brand">
-            <a class="gh-head-logo" href="{{@site.url}}">
-                {{#if @site.logo}}
-                    <img src="{{@site.logo}}" alt="{{@site.title}}" />
-                {{else}}
-                    {{@site.title}}
-                {{/if}}
+	<header class="src-header">
+		<div class="src-container pt-12 pb-8" data-flex="row">
+			<div class="src-header__title" data-column="4">
+				<a class="src-title__link" href="{{@site.url}}">
+					{{#if @site.logo}}
+						<img src="{{@site.logo}}" alt="{{@site.title}}" />
+					{{else}}
+						{{@site.title}}
+					{{/if}}
             </a>
-            <a class="gh-burger" role="button">
-                <div class="gh-burger-box">
-                    <div class="gh-burger-inner"></div>
-                </div>
-            </a>
-        </div>
-        <div class="gh-head-menu">
-            {{navigation}}
-        </div>
-        <div class="gh-head-actions">
-            <div class="gh-head-actions-list">
-                {{#if @site.facebook}}
-                <a href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
-                {{/if}}
-                {{#if @site.twitter}}
-                <a href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
-                {{/if}}
-                <a href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
-            </div>
-        </div>
-    </nav>
-</header>
+			</div>
+			<div class="src-header__menu" data-column="8">
+				<nav class="src-nav">
+					{{navigation}}
+				</nav>
+			</div>
+		</div>
+	</header>
 
-<main class="container">
+	<main class="src-container">
 
-    {{{body}}}
-    {{!-- All content gets inserted here, index.hbs, post.hbs, etc --}}
+		{{{body}}}
+		{{!-- All content gets inserted here, index.hbs, post.hbs, etc --}}
 
-</main>
+	</main>
 
-<section id="tailwind-test" class="flex mx-auto">
-	<h2 class="text-slate-600">Hi I'm Tailwind</h2>
-</section>
-
-<footer class="gh-foot">
-    <div class="gh-container">
-        <div class="gh-foot-menu">
-            {{navigation}}
-        </div>
-        <div class="gh-foot-meta">
-            Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
-        </div>
-    </div>
-</footer>
-
-</div>
-
-{{!-- <foot> --}}
+	<footer class="src-footer">
+	   <div class="src-container" data-flex="row">
+			<div class="src-footer__menu" data-column="4">
+				{{navigation}}
+			</div>
+			<div class="src-footer__copy" data-column="4">
+				<small>Copyright 2022</small>
+			</div>
+			<div class="src-footer__social" data-column="4">
+				<ul>
+					<li><a href="#"><i class="ion-facebook"></i></a><a href="#"><i class="ion-twitter"></i></a><a href="#"><i class="ion-reddit"></i></a><a href="#"><i class="ion-instagram"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
 
 <script src="{{asset "built/jquery-3.4.1.min.js"}}"></script>
 
@@ -98,18 +78,18 @@
 {{#is "post, page"}}
 	<script src="{{asset "built/jquery.fitvids.js"}}"></script>
 	<script>
-	var images = document.querySelectorAll('.kg-gallery-image img');
-	images.forEach(function (image) {
-		var container = image.closest('.kg-gallery-image');
-		var width = image.attributes.width.value;
-		var height = image.attributes.height.value;
-		var ratio = width / height;
-		container.style.flex = ratio + ' 1 0%';
-	});
-	$(document).ready(function () {
-		var $postContent = $(".gh-content");
-		$postContent.fitVids();
-	});
+		var images = document.querySelectorAll('.kg-gallery-image img');
+		images.forEach(function (image) {
+			var container = image.closest('.kg-gallery-image');
+			var width = image.attributes.width.value;
+			var height = image.attributes.height.value;
+			var ratio = width / height;
+			container.style.flex = ratio + ' 1 0%';
+		});
+		$(document).ready(function () {
+			var $postContent = $(".gh-content");
+			$postContent.fitVids();
+		});
 	</script>
 {{/is}}
 

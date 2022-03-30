@@ -49,9 +49,9 @@ async function css() {
 		cssnano()
 	]
 	return gulp
-		.src('assets/css/tail.css', { sourcemaps: true })
+		.src('assets/css/tail.css')
 		.pipe(postcss(processors))
-		.pipe(gulp.dest('assets/built/css', {sourcemaps: '.'}))
+		.pipe(gulp.dest('assets/built/css'))
 		.pipe(browserSync.stream());
 }
 
@@ -89,3 +89,22 @@ exports.watch = watch;
 exports.serve = serve;
 exports.dev = dev;
 exports.default = build;
+
+
+async function css(done) {
+	var processors = [
+		tailwindcss(),
+		easyimport(),
+		colorFunction(),
+		autoprefixer(),
+		cssnano()
+	];
+
+	pump([
+		src(['assets/scss/main.scss', 'assets/css/tail.css'], { sourcemaps: true }),
+		sass().on('error', sass.logError),
+		postcss(processors),
+		dest('assets/built/css', {sourcemaps: '.'}),
+		browsersync.stream()
+	], handleError(done));
+}

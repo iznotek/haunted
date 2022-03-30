@@ -1,7 +1,14 @@
 module.exports = {
-	content: ["**/*.{html,js,hbs}"],
+	content: [
+		'./**/*.{html,hbs}',
+	 ],
+	 safelist: [
+		{
+		  pattern: /./
+		},
+	 ],
 	theme: {
-		extend: {},
+	  extend: {},
 	},
 	plugins: [],
-}
+ }

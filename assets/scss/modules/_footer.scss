@@ -1,0 +1,22 @@
+.src-footer {
+	@apply relative m-0 pt-[var(--footer-pt)] pb-[var(--footer-pb)];
+   padding-top: $footer-pt;
+   padding-bottom: $footer-pb;
+   background: darken($grey2, 7%);
+}
+
+.ion {
+	display: block;
+	&-facebook {
+		@include ion-logo-facebook(48px, _slate(7));
+	}
+	&-instagram {
+		@include ion-logo-instagram(48px, _slate(7));
+	}
+	&-reddit {
+		@include ion-logo-reddit(48px, _slate(7));
+	}
+	&-twitter {
+		@include ion-logo-twitter(48px, _slate(7));
+	}
+}
