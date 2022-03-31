@@ -67,6 +67,16 @@ a {
 }
 
 .src-viewport {
-	@apply w-screen h-screen flex flex-col p-0 m-0;
-	background: $gr-dark-fade;
+	@apply relative w-screen h-screen flex flex-col p-0 m-0;
+	//background-image: var(--gradient-8);
+	background-image: $gr-dark-seas;
+	@include loadify(0.2s, 1.5s);
+	.src-parallax-bg {
+		@apply absolute z-0 w-screen h-screen p-0 m-0 opacity-40 mix-blend-screen;
+		img {
+			width: 110%;
+			object-fit: cover;
+			@include loadify(0.4s, 1s);
+		}
+	}
 }

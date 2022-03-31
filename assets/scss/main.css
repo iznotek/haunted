@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600");
 @import url("https://fonts.googleapis.com/css2?family=Bakbak+One:wght@400");
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Abel:400|Advent+Pro:600");
 @import url("https://fonts.googleapis.com/css2?family=Unica+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap");
@@ -942,6 +943,14 @@
     backface-visibility: visible;
   }
 }
+.home-slider, .src-viewport .src-parallax-bg img, .src-viewport {
+  opacity: 0;
+  visibility: hidden;
+  backface-visibility: hidden;
+  animation-name: loadify;
+  animation-fill-mode: forwards;
+}
+
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -1005,8 +1014,19 @@ a:hover {
 }
 
 .src-viewport {
-  @apply w-screen h-screen flex flex-col p-0 m-0;
-  background: linear-gradient(to right, #434343 0%, black 100%);
+  @apply relative w-screen h-screen flex flex-col p-0 m-0;
+  background-image: linear-gradient(to left top, #04070b, #05090d, #060c0f, #080e11, #091012, #11181a, #171f22, #1c272a, #28383c, #34494f, #405c62, #4d6f76);
+  animation-delay: 0.2s;
+  animation-duration: 1.5s;
+}
+.src-viewport .src-parallax-bg {
+  @apply absolute z-0 w-screen h-screen p-0 m-0 opacity-40 mix-blend-screen;
+}
+.src-viewport .src-parallax-bg img {
+  width: 110%;
+  object-fit: cover;
+  animation-delay: 0.4s;
+  animation-duration: 1s;
 }
 
 h1, h2, h3, h4, h5 {
@@ -1293,6 +1313,76 @@ figcaption {
   position: absolute;
   top: var(--space-phi);
   right: var(--space-phi);
+}
+
+.src-hero {
+  @apply relative z-10 flex flex-col w-full h-full;
+}
+.src-hero__bg {
+  @apply w-full h-full;
+}
+
+.home-slider {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  animation-delay: 0.5s;
+  animation-duration: 1.25s;
+}
+.home-slider .sw-slide {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.home-slider .parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 130%;
+  height: 130%;
+  -webkit-background-size: cover;
+  background-size: 100%;
+  background-position: 0 0;
+  filter: blur(12px);
+  animation-name: blur-fadeIn;
+  animation-duration: 2s;
+  animation-delay: 300ms;
+  animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+}
+
+@keyframes blur-fadeIn {
+  0% {
+    filter: blur(0);
+    transform: scale3d(1, 1, 1);
+  }
+  100% {
+    filter: blur(12px);
+    transform: scale3d(1.01, 1.01, 2);
+  }
+}
+.slide__box {
+  padding: var(--space-e) var(--space-phi);
+}
+.slide__box p {
+  font-family: "Uni Sans", sans-serif;
+}
+
+.slide__image {
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+.slide__image > img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  transform-style: preserve-3d;
+}
+.slide__image .jarallax-img {
+  object-position: 25% 50% !important;
 }
 
 .src-footer {

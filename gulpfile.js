@@ -18,110 +18,136 @@ const logSymbols = require('log-symbols'); //For Symbolic Console logs :) :P
 
 //Load Previews on Browser on dev
 function livePreview(done){
-  browserSync.init({
+	browserSync.init({
 		proxy: 'http://localhost:2368',
 		port: 8080,
-  });
-  done();
+	});
+	done();
 }
 
 // Triggers Browser reload
 function previewReload(done){
-  console.log("\n\t" + logSymbols.info,"Reloading Browser Preview.\n");
-  browserSync.reload();
-  done();
+	console.log("\n\t" + logSymbols.info,"Reloading Browser Preview.\n");
+	browserSync.reload();
+	done();
 }
 
 //Development Tasks
 function devHTML(){
-  return src(`${options.paths.src.base}/**/*.hbs`).pipe(dest(options.paths.dist.base));
+	return src(`${options.paths.src.base}/**/*.hbs`).pipe(dest(options.paths.dist.base));
 }
 
 function devStyles(){
-  const tailwindcss = require('tailwindcss');
-  return src(`${options.paths.src.css}/**/*.scss`).pipe(sass().on('error', sass.logError))
-    .pipe(dest(options.paths.src.css))
-    .pipe(postcss([
-      tailwindcss(options.config.tailwindjs),
-      require('autoprefixer'),
-    ]))
-    .pipe(concat({ path: 'style.css'}))
-    .pipe(dest(options.paths.dist.css));
+	const tailwindcss = require('tailwindcss');
+	return src(`${options.paths.src.css}/**/*.scss`).pipe(sass().on('error', sass.logError))
+	.pipe(dest(options.paths.src.css))
+	.pipe(postcss([
+		tailwindcss(options.config.tailwindjs),
+		require('autoprefixer'),
+	]))
+	.pipe(concat({ path: 'style.css'}))
+	.pipe(dest(options.paths.dist.css));
 }
 
 function devScripts(){
-  return src([
-    `${options.paths.src.js}/libs/**/*.js`,
-    `!${options.paths.src.js}/**/external/*`
-  ]).pipe(concat({ path: 'scripts.js'})).pipe(dest(options.paths.dist.js));
+	return src([
+		`${options.paths.src.js}/libs/**/*.js`
+	]).pipe(concat({ path: 'scripts.js' }))
+	.pipe(dest(options.paths.dist.js));
+}
+
+function devModules(){
+	return src([
+		`${options.paths.src.js}/modules/**/*.js`,
+		`${options.paths.src.js}/app.js`
+	]).pipe(concat({ path: 'app.js' }))
+	.pipe(dest(options.paths.dist.js));
 }
 
 function devImages(){
-  return src(`${options.paths.src.img}/**/*`).pipe(dest(options.paths.dist.img));
+	return src(`${options.paths.src.img}/**/*`).pipe(dest(options.paths.dist.img));
+}
+
+function devFonts(){
+	return src(`${options.paths.src.fonts}/**/*`).pipe(dest(options.paths.dist.fonts));
 }
 
 function watchFiles(){
-  watch(`${options.paths.src.base}/**/*.hbs`,series(devHTML, devStyles, previewReload));
-  watch([options.config.tailwindjs, `${options.paths.src.css}/**/*.scss`],series(devStyles, previewReload));
-  watch(`${options.paths.src.js}/**/*.js`,series(devScripts, previewReload));
-  watch(`${options.paths.src.img}/**/*`,series(devImages, previewReload));
-  console.log("\n\t" + logSymbols.info,"Watching for Changes..\n");
+	watch(`${options.paths.src.base}/**/*.hbs`,series(devHTML, devStyles, previewReload));
+	watch([options.config.tailwindjs, `${options.paths.src.css}/**/*.scss`],series(devStyles, previewReload));
+	watch(`${options.paths.src.js}/**/*.js`,series(devScripts, previewReload));
+	watch(`${options.paths.src.img}/**/*`,series(devImages, previewReload));
+	console.log("\n\t" + logSymbols.info,"Watching for Changes..\n");
 }
 
 function devClean(){
-  console.log("\n\t" + logSymbols.info,"Cleaning dist folder for fresh start.\n");
-  return del([options.paths.dist.base]);
+	console.log("\n\t" + logSymbols.info,"Cleaning dist folder for fresh start.\n");
+	return del([options.paths.dist.base]);
 }
 
 //Production Tasks (Optimized Build for Live/Production Sites)
 function prodHTML(){
-  return src(`${options.paths.src.base}/**/*.hbs`).pipe(dest(options.paths.build.base));
+	return src(`${options.paths.src.base}/**/*.hbs`).pipe(dest(options.paths.build.base));
 }
 
 function prodStyles(){
-  return src(`${options.paths.dist.css}/**/*`)
-  .pipe(purgecss({
-    content: ['**/*.{hbs,js}'],
-    defaultExtractor: content => {
-      const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
-      const innerMatches = content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || []
-      return broadMatches.concat(innerMatches)
-    }
-  }))
-  .pipe(cleanCSS({compatibility: 'ie8'}))
-  .pipe(dest(options.paths.build.css));
+	return src(`${options.paths.dist.css}/**/*`)
+	.pipe(purgecss({
+		content: ['**/*.{hbs,js}'],
+		defaultExtractor: content => {
+			const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
+			const innerMatches = content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || []
+			return broadMatches.concat(innerMatches)
+		}
+	}))
+	.pipe(cleanCSS({compatibility: 'ie8'}))
+	.pipe(dest(options.paths.build.css));
 }
 
 function prodScripts(){
-  return src(`${options.paths.src.js}/libs/**/*.js`)
-  .pipe(concat({ path: 'scripts.js'}))
-  .pipe(uglify())
-  .pipe(dest(options.paths.build.js));
+	return src(`${options.paths.src.js}/libs/**/*.js`)
+	.pipe(concat({ path: 'scripts.js'}))
+	.pipe(uglify())
+	.pipe(dest(options.paths.build.js));
+}
+
+function prodModules(){
+	return src([
+		`${options.paths.src.js}/modules/**/*.js`
+		`${options.paths.src.js}/app.js`
+	])
+	.pipe(concat({ path: 'app.js'}))
+	.pipe(uglify())
+	.pipe(dest(options.paths.build.js));
 }
 
 function prodImages(){
-  return src(options.paths.src.img + '/**/*').pipe(imagemin()).pipe(dest(options.paths.build.img));
+	return src(options.paths.src.img + '/**/*').pipe(imagemin()).pipe(dest(options.paths.build.img));
+}
+
+function prodFonts(){
+	return src(`${options.paths.src.fonts}/**/*`).pipe(dest(options.paths.dist.fonts));
 }
 
 function prodClean(){
-  console.log("\n\t" + logSymbols.info,"Cleaning build folder for fresh start.\n");
-  return del([options.paths.build.base]);
+	console.log("\n\t" + logSymbols.info,"Cleaning build folder for fresh start.\n");
+	return del([options.paths.build.base]);
 }
 
 function buildFinish(done){
-  console.log("\n\t" + logSymbols.info,`Production build is complete. Files are located at ${options.paths.build.base}\n`);
-  done();
+	console.log("\n\t" + logSymbols.info,`Production build is complete. Files are located at ${options.paths.build.base}\n`);
+	done();
 }
 
 exports.default = series(
-  devClean, // Clean Dist Folder
-  parallel(devStyles, devScripts, devImages, devHTML), //Run All tasks in parallel
-  livePreview, // Live Preview Build
-  watchFiles // Watch for Live Changes
-);
+	devClean, // Clean Dist Folder
+	parallel(devStyles, devScripts, devModules, devImages, devFonts, devHTML), //Run All tasks in parallel
+	livePreview, // Live Preview Build
+	watchFiles // Watch for Live Changes
+	);
 
-exports.prod = series(
-  prodClean, // Clean Build Folder
-  parallel(prodStyles, prodScripts, prodImages, prodHTML), //Run All tasks in parallel
-  buildFinish
-);
+	exports.prod = series(
+		prodClean, // Clean Build Folder
+		parallel(prodStyles, prodScripts, prodModules, prodImages, devFonts, prodHTML), //Run All tasks in parallel
+		buildFinish
+		);
