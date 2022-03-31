@@ -15,26 +15,19 @@
 </head>
 <body class="{{body_class}}">
 
-	<header class="src-header">
-		<div class="src-container pt-12 pb-8" data-flex="row">
-			<div class="src-header__title" data-column="4">
-				<a class="src-title__link" href="{{@site.url}}">
-					{{#if @site.logo}}
-						<img src="{{@site.logo}}" alt="{{@site.title}}" />
-					{{else}}
-						{{@site.title}}
-					{{/if}}
-            </a>
-			</div>
-			<div class="src-header__menu" data-column="8">
-				<nav class="src-nav">
-					{{navigation}}
-				</nav>
-			</div>
-		</div>
-	</header>
+	<div class="src-viewport">
+		<header class="src-header">
+			{{> "header"}}
+		</header>
 
-	<main class="src-container">
+		<section class="src-hero">
+			<div class="src-hero__block">
+				some hero stuff...
+			</div>
+		</section>
+	</div>
+
+	<main class="src-main">
 
 		{{{body}}}
 		{{!-- All content gets inserted here, index.hbs, post.hbs, etc --}}
@@ -42,19 +35,7 @@
 	</main>
 
 	<footer class="src-footer">
-	   <div class="src-container" data-flex="row">
-			<div class="src-footer__menu" data-column="4">
-				{{navigation}}
-			</div>
-			<div class="src-footer__copy" data-column="4">
-				<small>Copyright 2022</small>
-			</div>
-			<div class="src-footer__social" data-column="4">
-				<ul>
-					<li><a href="#"><i class="ion-facebook"></i></a><a href="#"><i class="ion-twitter"></i></a><a href="#"><i class="ion-reddit"></i></a><a href="#"><i class="ion-instagram"></i></a></li>
-				</ul>
-			</div>
-		</div>
+	   {{> "footer"}}
 	</footer>
 
 <script src="{{asset "built/jquery-3.4.1.min.js"}}"></script>

@@ -2,22 +2,26 @@
 Re-usable card for linking to posts
 --}}
 
-<article class="gh-card {{post_class}}">
-    <a class="gh-card-link" href="{{url}}">
-        {{#if feature_image}}
-            <img class="gh-card-image"
-                srcset="{{img_url feature_image size="s"}} 300w,
-                        {{img_url feature_image size="m"}} 600w,
-                        {{img_url feature_image size="l"}} 1000w,
-                        {{img_url feature_image size="xl"}} 2000w"
-                sizes="(max-width: 1000px) 400px, 700px"
-                src="{{img_url feature_image size="m"}}"
-                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-            />
+<article class="src-card {{post_class}}" data-flex="column">
+   {{#if feature_image}}
+
+    		<figure data-column="5">
+    			<a class="src-card-link" href="{{url}}">
+	            <img class="src-card-image w-full max-w-full"
+	                srcset="{{img_url feature_image size="s"}} 300w,
+	                        {{img_url feature_image size="m"}} 600w,
+	                        {{img_url feature_image size="l"}} 1000w,
+	                        {{img_url feature_image size="xl"}} 2000w"
+	                sizes="(max-width: 1000px) 400px, 700px"
+	                src="{{img_url feature_image size="m"}}"
+	                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+	            />
+					</a>
+    		</figure>
         {{/if}}
-        <div class="gh-card-content">
-            <span class="gh-card-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</span>
-            <h2 class="gh-card-title">{{title}}</h2>
+        <div class="src-card-content" data-column="7">
+            <span class="src-card-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</span>
+            <a href="{{url}}"><h3 class="src-card-title">{{title}}</h3></a>
             <p>{{excerpt}}</p>
             <strong>Read more</strong>
         </div>

@@ -1,0 +1,13 @@
+.src-article {
+	&__readmore {
+
+	}
+}
+
+.ion-rewind {
+	@include ion-rewind($xl, $a);
+}
+
+.ion-fastforward {
+	@include ion-fastforward($xl, $a);
+}

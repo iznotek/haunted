@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "tailstyles/global";
-
 @import "toolkit/tools";
 
 @import "variables";
@@ -26,5 +24,7 @@
 @import "modules/typography";
 @import "modules/media";
 //@import "modules/buttons";
+@import "modules/header";
 @import "modules/footer";
 //
+@import "views/article";

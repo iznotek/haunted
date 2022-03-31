@@ -1,0 +1,18 @@
+<div class="pt-12 pb-8" data-flex="row">
+	<div class="src-header__title" data-column="4">
+		<a class="src-title__link" href="{{@site.url}}">
+			{{#if @site.logo}}
+				<figure class="src-title__logo">
+					<img class="src-title__logo-img" src="{{@site.logo}}" alt="{{@site.title}}" />
+				</figure>
+			{{else}}
+				{{@site.title}}
+			{{/if}}
+		</a>
+	</div>
+	<div class="src-header__menu" data-column="8">
+		<nav class="src-nav">
+			{{navigation}}
+		</nav>
+	</div>
+</div>

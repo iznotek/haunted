@@ -1,5 +1,15 @@
 @include loadify(init);
 
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		 animation-duration: 0.01ms !important;
+		 animation-iteration-count: 1 !important;
+		 transition-duration: 0.01ms !important;
+		 scroll-behavior: auto !important;
+	}
+}
+
 html {
    font-size: $text-root__size;
    line-height: $text-root__line;
@@ -44,7 +54,7 @@ body {
    -webkit-text-size-adjust: 100%;
    font-feature-settings: "kern" 1;
    font-kerning: normal;
-	@apply flex flex-col place-content-between w-full h-full relative;
+	@apply flex flex-col place-content-between w-full relative;
 }
 
 a {
@@ -54,4 +64,9 @@ a {
    &:hover {
       color: $a--hover;
    }
+}
+
+.src-viewport {
+	@apply w-screen h-screen flex flex-col p-0 m-0;
+	background: $gr-dark-fade;
 }

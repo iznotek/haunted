@@ -2,18 +2,18 @@
 
 {{#post}}
 
-<article class="gh-article {{post_class}}">
+<article class="src-article {{post_class}}">
 
-    <header class="gh-header gh-canvas">
-        <span class="gh-post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</span>
-        <h1 class="gh-title">{{title}}</h1>
+    <header class="src-article__header src-article__canvas">
+        <span class="src-article__post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</span>
+        <h1 class="src-article__title">{{title}}</h1>
 
         {{#if custom_excerpt}}
-        <p class="gh-excerpt">{{custom_excerpt}}</p>
+        <p class="src-article__excerpt">{{custom_excerpt}}</p>
         {{/if}}
 
         {{#if feature_image}}
-        <figure class="gh-feature-image">
+        <figure class="src-article__feature-image">
             <img
                 srcset="{{img_url feature_image size="s"}} 300w,
                         {{img_url feature_image size="m"}} 600w,
@@ -31,18 +31,18 @@
         {{/if}}
     </header>
 
-    <div class="gh-content gh-canvas">
+    <div class="src-article__content src-article__canvas">
         {{content}}
     </div>
 
-    <footer class="gh-footer gh-canvas">
+    <footer class="src-article__footer src-article__canvas">
 
-        <div class="gh-post-authors">
+        <div class="src-article__post-authors">
             Written by {{#foreach authors}}<a href="{{url}}">{{name}}</a>{{/foreach}}
         </div>
 
         {{!--
-        <section class="gh-post-comments">
+        <section class="src-article__post-comments">
             If you want to embed comments, this is a good place to do it!
         </section>
         --}}
@@ -51,14 +51,14 @@
 
 </article>
 
-<aside class="gh-readmore">
-    <div class="gh-readmore-inner gh-container">
-        <div class="gh-readmore-next">
-            {{#next_post}}<a href="{{url}}">{{> "icons/arrow-left"}} <h4>{{title}}</h4></a>{{/next_post}}
+<aside class="src-article__readmore">
+    <div class="src-article__readmore-inner src-article__container">
+        <div class="src-article__readmore-next">
+            {{#next_post}}<a href="{{url}}"><i class="ion-rewind"></i> <h4>{{title}}</h4></a>{{/next_post}}
         </div>
-        <div class="gh-readmore-prev">
+        <div class="src-article__readmore-prev">
             {{#prev_post}}<a href="{{url}}">
-                <h4>{{title}}</h4> {{> "icons/arrow-right"}}
+                <h4>{{title}}</h4> <i class="ion-fastforward"></i>
             </a>{{/prev_post}}
         </div>
     </div>
