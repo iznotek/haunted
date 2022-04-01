@@ -32,53 +32,6 @@
    }
 }
 
-.header {
-   display: flex;
-   align-items: flex-end;
-   padding: 0 0 1rem;
-   margin: 0;
-   &__title {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      > svg {
-         @include sizer(100px);
-         margin: auto;
-      }
-   }
-   &__menu {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      > nav {
-         > a {
-            font-size: $nav-a__size;
-            color: $nav-a__color;
-            display: inline-flex;
-            padding: $nav-a__py $nav-a__px;
-            text-decoration: none;
-            transition: all 300ms ease-in;
-            &:hover {
-               color: lighten($nav-a__color, 20%);
-            }
-         }
-      }
-   }
-   &__search {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      input[type="text"] {
-         width: 80%;
-         padding: 0.33rem 0.66rem;
-         font-size: $p;
-         outline: 0;
-         background: rgba(ocGray(1), 0.4);
-         border: 1px solid _slate(9);
-      }
-   }
-}
-
 .logo {
    width: 160px;
 }

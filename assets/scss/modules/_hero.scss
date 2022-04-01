@@ -1,9 +1,18 @@
 .src-hero {
-	@apply relative z-10 flex flex-col w-full h-full;
-	&__bg {
-		@apply w-full h-full;
-
+	@apply relative z-10 w-full h-full;
+	&__box {
+		@apply relative overflow-hidden;
 	}
+	&__info {
+		@apply flex flex-col pt-10;
+	}
+	&__img {
+		@apply relative max-h-[70vh] overflow-hidden;
+		> img {
+			@apply w-full h-full object-cover;
+		}
+	}
+
 }
 
 .home-slider {
