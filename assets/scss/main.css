@@ -908,6 +908,25 @@
     filter: blur(1px);
   }
 }
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes moveDots {
+  from {
+    transform: rotate(0deg) scale(12) translateX(-20px);
+  }
+  to {
+    transform: rotate(360deg) scale(18) translateX(20px);
+  }
+}
 .dark-fade {
   background-image: linear-gradient(to right, #434343 0%, black 100%);
 }
@@ -1001,6 +1020,7 @@ body {
   -webkit-text-size-adjust: 100%;
   font-feature-settings: "kern" 1;
   font-kerning: normal;
+  overflow-x: hidden;
   @apply flex flex-col place-content-between w-full relative;
 }
 
@@ -1014,7 +1034,7 @@ a:hover {
 }
 
 .src-viewport {
-  @apply relative w-screen h-screen flex flex-col p-0 m-0;
+  @apply relative w-screen overflow-hidden flex flex-col p-0 m-0;
   background-image: linear-gradient(to left top, #04070b, #05090d, #060c0f, #080e11, #091012, #11181a, #171f22, #1c272a, #28383c, #34494f, #405c62, #4d6f76);
   animation-delay: 0.2s;
   animation-duration: 1.5s;
@@ -1280,6 +1300,19 @@ figcaption {
 }
 .src-hero__img {
   @apply relative max-h-[70vh] overflow-hidden;
+}
+.src-hero__img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
 }
 .src-hero__img > img {
   @apply w-full h-full object-cover;

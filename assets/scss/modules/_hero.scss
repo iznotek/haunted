@@ -8,6 +8,7 @@
 	}
 	&__img {
 		@apply relative max-h-[70vh] overflow-hidden;
+		@include overlay-img(0.5, lawrencium);
 		> img {
 			@apply w-full h-full object-cover;
 		}

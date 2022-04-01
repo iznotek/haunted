@@ -1,5 +1,42 @@
 {{!< default}}
 
+	<section class="src-hero divide-y divide-slate-400" data-flex="row">
+		<div class="src-hero__box" data-column="2"></div>
+		<div class="src-hero__box divide-x divide-slate-400" data-column="10" data-flex="row">
+			{{#get "posts" limit="1" filter="featured:true"}}
+			{{#foreach posts}}
+				<article class="src-hero__info" data-column="4">
+					<span class="src-hero__post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time></span>
+					<h3 class="src-hero__title">{{title}}</h3>
+
+					{{#if custom_excerpt}}
+					<p class="src-hero__excerpt">{{custom_excerpt}}</p>
+					{{else}}
+					<p class="src-hero__excerpt">{{excerpt}}</p>
+					{{/if}}
+				</article>
+
+				{{#if feature_image}}
+				<figure class="src-hero__img" data-column="8">
+						<img
+							srcset="{{img_url feature_image size="s"}} 300w,
+										{{img_url feature_image size="m"}} 600w,
+										{{img_url feature_image size="l"}} 1000w,
+										{{img_url feature_image size="xl"}} 2000w"
+							sizes="(max-width: 1000px) 1000px, 2000px"
+							loading="lazy"
+							src="{{img_url feature_image size="xl"}}"
+							alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+						/>
+						{{#if feature_image_caption}}
+							<figcaption>{{feature_image_caption}}</figcaption>
+						{{/if}}
+				</figure>
+				{{/if}}
+			{{/foreach}}
+			{{/get}}
+		</div>
+	</section>
 
 	<section class="src-page">
 		<div class="src-box">

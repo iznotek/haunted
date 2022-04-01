@@ -54,6 +54,7 @@ body {
    -webkit-text-size-adjust: 100%;
    font-feature-settings: "kern" 1;
    font-kerning: normal;
+	overflow-x: hidden;
 	@apply flex flex-col place-content-between w-full relative;
 }
 
@@ -67,7 +68,7 @@ a {
 }
 
 .src-viewport {
-	@apply relative w-screen h-screen flex flex-col p-0 m-0;
+	@apply relative w-screen overflow-hidden flex flex-col p-0 m-0;
 	//background-image: var(--gradient-8);
 	background-image: $gr-dark-seas;
 	@include loadify(0.2s, 1.5s);
