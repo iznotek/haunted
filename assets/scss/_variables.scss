@@ -17,6 +17,7 @@ $map-for-breakpoints: (
 @import "config/color";
 @import "config/fonts";
 @import "config/easing";
+@import "config/gradients";
 
 @import "config/theme";
 @import "config/spacing";
@@ -47,7 +48,7 @@ $space-pi:            var(--space-pi);
 $grey1:             #2e3338;
 $grey2:             #171a1c;
 
-$body-bg:             var(--color-body);
+$body-bg:             var(--gr-subtle-grey);
 
 // Fonts
 $kanit:               'Kanit', sans-serif;
@@ -109,16 +110,16 @@ $footer-pt:           var(--footer-pt);
 $footer-pb:           var(--footer-pb);
 
 // Gradient Backgrounds
-$gr-dark-fade:        linear-gradient(to right, #434343 0%, black 100%);
-$gr-cool-grey:        linear-gradient(60deg, #29323c 0%, #485563 100%);
-$gr-blue-night:       linear-gradient(to right, #243949 0%, #517fa4 100%);
-$gr-slate-gray:       linear-gradient(-20deg, #616161 0%, #9bc5c3 100%);
-$gr-metallic-fade:    linear-gradient(to right, #d7d2cc 0%, #304352 100%);
-$gr-sunset-purple:    linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%);
-$gr-morpheus:         linear-gradient(to top, #30cfd0 0%, #330867 100%);
-$gr-dark-seas: 		 linear-gradient(to left top, #04070b, #05090d, #060c0f, #080e11, #091012, #11181a, #171f22, #1c272a, #28383c, #34494f, #405c62, #4d6f76);
-$gr-lawrencium: 		 linear-gradient(to right, #0f0c29, #302b63, #24243e);
-$gr-royal: 				 linear-gradient(to right, #141e30, #243b55);
-$gr-murdered: 			 linear-gradient(360deg,#030303 10%,#1f1f1f 360%);
-$gr-subtle-grey:  	 linear-gradient(360deg, #dee1e1 10%, #f4f4f4 360%);
-$gr-haze: 				 linear-gradient(360deg,#949494 10%,#efefef 360%);
+$gr-dark-fade:        var(--gr-dark-fade);
+$gr-cool-grey:        var(--gr-cool-grey);
+$gr-blue-night:       var(--gr-blue-night);
+$gr-slate-gray:       var(--gr-slate-gray);
+$gr-metallic-fade:    var(--gr-metallic-fade);
+$gr-sunset-purple:    var(--gr-sunset-purple);
+$gr-morpheus:         var(--gr-morpheus);
+$gr-dark-seas: 		 var(--gr-dark-seas);
+$gr-lawrencium: 		 var(--gr-lawrencium);
+$gr-royal: 				 var(--gr-royal);
+$gr-murdered: 			 var(--gr-murdered);
+$gr-subtle-grey:  	 var(--gr-subtle-grey);
+$gr-haze: 				 var(--gr-haze);

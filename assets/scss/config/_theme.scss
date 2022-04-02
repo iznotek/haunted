@@ -3,8 +3,8 @@
 $color-scheme: (
    "bg" : _slate(9),
    "body" : var(--gradient-16),
-   "text" : _slate(4),
-   "heading" : _slate(8)
+   "text" : _slate(8),
+   "heading" : _slate(7)
 );
 
 :where(html) {

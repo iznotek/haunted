@@ -33,7 +33,7 @@
       (-.2+(random()) * 3) + em
       (-.8+(random()) * 3) + em
       14px
-      hsla(random() * 270, 100%, 50%,.9);
+      hsla(random() * 360, 100%, 50%,.9);
    }
    text-shadow: $text-shadow;
 }

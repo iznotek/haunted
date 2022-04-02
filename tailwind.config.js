@@ -1,7 +1,7 @@
 module.exports = {
 	content: [
-		'./**/*.{html,hbs}',
-	 ],
+		'**/*.{html,hbs}'
+	],
 	 safelist: [
 		{
 		  pattern: /./

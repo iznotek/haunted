@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* purgecss start ignore */
+
 @import "toolkit/tools";
 
 @import "variables";
@@ -10,16 +12,16 @@
 @import "core/mixins";
 @import "core/flex-grid";
 
-//@import "config/reset";
-//@import "config/normalize";
+/* purgecss end ignore */
 
 @import "utility/layout";
 @import "utility/transitions";
 @import "utility/animations";
 @import "utility/gradients";
+@import "utility/overlay";
 
 @import "helpers/ion-icons";
-////
+
 @import "modules/global";
 @import "modules/typography";
 @import "modules/media";
@@ -27,5 +29,5 @@
 @import "modules/header";
 @import "modules/hero";
 @import "modules/footer";
-//
+
 @import "views/article";

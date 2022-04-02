@@ -45,6 +45,9 @@ function devStyles(){
 		tailwindcss(options.config.tailwindjs),
 		require('autoprefixer'),
 	]))
+	.pipe(purgecss({
+		content: ['**/*.hbs']
+  	}))
 	.pipe(concat({ path: 'style.css'}))
 	.pipe(dest(options.paths.dist.css));
 }

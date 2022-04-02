@@ -1,0 +1,34 @@
+.blobFX {
+   background-color: #100010;
+   overflow: hidden;
+	&::before,
+	&::after,
+	&-bg::before,
+	&-bg::after {
+		@include blobFX_before-after;
+	}
+}
+
+.blobFX-bg::before {
+   @include dots(10);
+   animation-duration: 90s;
+   animation-delay: -27s;
+}
+
+.blobFX-bg::after {
+   @include dots(20);
+   animation-duration: 80s;
+   animation-delay: -32s;
+}
+
+.blobFX::before {
+   @include dots(10);
+   animation-duration: 90s;
+   animation-delay: -23s;
+}
+
+.blobFX::after {
+   @include dots(30);
+   animation-duration: 41s;
+   animation-delay: -19s;
+}

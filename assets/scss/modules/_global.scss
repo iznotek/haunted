@@ -43,11 +43,11 @@ canvas {
 }
 
 body {
-   // color: $text-color;
+   color: $text-color;
    font-size: $text-size;
    font-family: $text-font;
    font-weight: $text-weight;
-   // background-image: $body-bg;
+   background-image: $body-bg;
    background-size: 100%;
    background-attachment: fixed;
    text-rendering: optimizeLegibility;
@@ -70,8 +70,13 @@ a {
 .src-viewport {
 	@apply relative w-screen overflow-hidden flex flex-col p-0 m-0;
 	//background-image: var(--gradient-8);
-	background-image: $gr-dark-seas;
 	@include loadify(0.2s, 1.5s);
+	&__bg {
+		@apply absolute z-0;
+		&-img {
+			@apply opacity-60 contrast-125 blur-[3px] saturate-50 mix-blend-hard-light;
+		}
+	}
 	.src-parallax-bg {
 		@apply absolute z-0 w-screen h-screen p-0 m-0 opacity-40 mix-blend-screen;
 		img {
