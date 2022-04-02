@@ -37,7 +37,7 @@ $flex-columns: 12;
 @for $i from 1 through $flex-columns {
    [data-column="#{$i}"] {
       @include col($i);
-		@apply sm:basis-full sm:max-w-full md:basis-full md:max-w-full lg:basis-[calc(100% / 12 * #{$i})] lg:max-w-[calc(100% / 12 * #{$i})];
+
    }
 }
 
