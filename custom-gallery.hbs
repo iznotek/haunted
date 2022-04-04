@@ -1,0 +1,32 @@
+{{!< default}}
+
+{{#post}}
+
+<article class="src-article {{post_class}}">
+
+    <header class="src-article__header src-article__canvas">
+      <span class="src-article__post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</span>
+      <h1 class="src-article__title">{{title}}</h1>
+    </header>
+
+    <div class="src-article__content src-article__canvas">
+      {{content}}
+    </div>
+
+    <footer class="src-article__footer src-article__canvas">
+
+      <div class="src-article__post-authors">
+          Written by {{#foreach authors}}<a href="{{url}}">{{name}}</a>{{/foreach}}
+      </div>
+
+      {{!--
+      <section class="src-article__post-comments">
+          If you want to embed comments, this is a good place to do it!
+      </section>
+      --}}
+
+    </footer>
+
+</article>
+
+{{/post}}

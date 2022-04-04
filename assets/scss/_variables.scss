@@ -45,7 +45,9 @@ $space-phi:           var(--space-phi);
 $space-e:             var(--space-e);
 $space-pi:            var(--space-pi);
 
-$grey1:             #2e3338;
+$container-gutter: 	 calc(#{$space-pi} / #{$e});
+
+$grey1:               #2e3338;
 $grey2:             #171a1c;
 
 $body-bg:             var(--gr-subtle-grey);

@@ -11,19 +11,66 @@
    }
    &__menu {
       @apply flex items-center justify-center;
-      > nav.src-nav {
+		> nav.src-nav {
 			> ul.nav {
-				@apply flex flex-col;
+				@apply flex flex-col gap-3;
 				> li {
 					@apply flex-1;
-					> a {
-						font-size: $nav-a__size;
-						color: $nav-a__color;
-						display: block;
+					a {
+						@apply relative block w-fit;
+						font-size: $h3;
+						font-weight: 500;
+						line-height: $sf-4;
 						text-decoration: none;
-						transition: all 300ms ease-in;
+						text-transform: uppercase;
+						letter-spacing: -1px;
+						text-shadow: 0 0 0 rgba(#fff, 0);
+						transition: all 666ms;
 						&:hover {
-							color: lighten($nav-a__color, 20%);
+							color: desaturate(ocGrape(1), 0.3);
+							transform: scale(1.0618);
+							transition: all 333ms;
+							&::before {
+								top: -3px;
+								left: -2px;
+								letter-spacing: -2px;
+								color: ocGrape(5);
+								mix-blend-mode: color-burn;
+								filter: blur(1px);
+								transform: skew(12deg) scale(1.0618);
+								animation-name: menuLink--before;
+								animation-duration: 4s;
+								animation-fill-mode: both;
+								animation-iteration-count: infinite;
+								//opacity: 1;
+							}
+							&::after {
+								width: 130%;
+								//outline: 2px solid $grey2;
+							}
+						}
+						&::before {
+							content: attr(data-link);
+							position: absolute;
+							top: 0;
+							left: 0;
+							height: clamp(1.2rem, (0.88vw + 1.12rem), 1.9rem);
+							filter: blur(0);
+							overflow: hidden;
+							transition: all 333ms;
+						}
+						&::after {
+							content: "";
+							position: absolute;
+							width: 0;
+							height: 2px;
+							top: 58%;
+							left: 50%;
+							transform: translate(-50%, -58%);
+							//background: ocGrape(3);
+							//background: radial-gradient(circle, rgba(207,0,238,1) 0%, rgba(247,38,215,0.7231267507002801) 50%, rgba(255,255,255,0) 100%);
+							background: radial-gradient(circle, rgba(ocGrape(7),1) 0%, rgba(ocGrape(6),0.75) 75%, rgba(255,255,255,0) 100%);
+							transition: all 333ms ease;
 						}
 					}
 				}
@@ -34,83 +81,6 @@
 
 .logo {
    width: 160px;
-}
-
-// Sandboxing Another format....
-.r-header {
-   position: relative;
-   display: flex;
-   margin: 0;
-   padding: 0;
-   //background: $grey2;
-   &__menu {
-      padding-top: calc($space-phi / $e);
-      > nav {
-         position: relative;
-         display: flex;
-         flex-direction: column;
-         gap: $sf-1;
-         > a {
-            font-size: $h3;
-            font-weight: 500;
-            line-height: $sf-4;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            position: relative;
-            display: block;
-            width: fit-content;
-            text-shadow: 0 0 0 rgba(#fff, 0);
-            transition: all 666ms;
-            &:hover {
-               color: desaturate(ocGrape(1), 0.3);
-               transform: scale(1.0618);
-               transition: all 333ms;
-               &::before {
-                  top: -3px;
-                  left: -2px;
-                  letter-spacing: -2px;
-                  color: ocGrape(5);
-                  mix-blend-mode: color-burn;
-                  filter: blur(1px);
-                  transform: skew(12deg) scale(1.0618);
-                  animation-name: menuLink--before;
-                  animation-duration: 4s;
-                  animation-fill-mode: both;
-                  animation-iteration-count: infinite;
-                  //opacity: 1;
-               }
-               &::after {
-                  width: 130%;
-                  //outline: 2px solid $grey2;
-               }
-            }
-            &::before {
-               content: attr(data-link);
-               position: absolute;
-               top: 0;
-               left: 0;
-               height: clamp(1.2rem, (0.88vw + 1.12rem), 1.9rem);
-               filter: blur(0);
-               overflow: hidden;
-               transition: all 333ms;
-            }
-            &::after {
-               content: "";
-               position: absolute;
-               width: 0;
-               height: 2px;
-               top: 58%;
-               left: 50%;
-               transform: translate(-50%, -58%);
-               //background: ocGrape(3);
-               //background: radial-gradient(circle, rgba(207,0,238,1) 0%, rgba(247,38,215,0.7231267507002801) 50%, rgba(255,255,255,0) 100%);
-               background: radial-gradient(circle, rgba(ocGrape(7),1) 0%, rgba(ocGrape(6),0.75) 75%, rgba(255,255,255,0) 100%);
-               transition: all 333ms ease;
-            }
-         }
-      }
-   }
 }
 
 .theme-select {

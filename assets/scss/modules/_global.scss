@@ -43,18 +43,17 @@ canvas {
 }
 
 body {
-   color: $text-color;
-   font-size: $text-size;
-   font-family: $text-font;
-   font-weight: $text-weight;
-   background-image: $body-bg;
-   background-size: 100%;
-   background-attachment: fixed;
-   text-rendering: optimizeLegibility;
-   -webkit-text-size-adjust: 100%;
-   font-feature-settings: "kern" 1;
-   font-kerning: normal;
-	overflow-x: hidden;
+  color: $text-color;
+  font-size: $text-size;
+  font-family: $text-font;
+  font-weight: $text-weight;
+  background-image: $body-bg;
+  background-size: 100%;
+  background-attachment: fixed;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
 	@apply flex flex-col place-content-between w-full relative;
 }
 

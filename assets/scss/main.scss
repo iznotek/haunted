@@ -22,12 +22,21 @@
 
 @import "helpers/ion-icons";
 
+/* purgecss start ignore */
 @import "modules/global";
+/* purgecss end ignore */
+
 @import "modules/typography";
 @import "modules/media";
-//@import "modules/buttons";
+@import "modules/buttons";
 @import "modules/header";
+@import "modules/nav";
 @import "modules/hero";
+
+/* purgecss start ignore */
+@import "modules/gallery";
+/* purgecss end ignore */
+
 @import "modules/footer";
 
 @import "views/article";

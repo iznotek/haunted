@@ -7,7 +7,7 @@
 // -----
 
 .src-container {
-   @include adaptive(calc(#{$space-pi} / #{$e}));
+   @include adaptive($container-gutter);
    max-width: $content-width;
 }
 
@@ -37,8 +37,23 @@ $flex-columns: 12;
 @for $i from 1 through $flex-columns {
    [data-column="#{$i}"] {
       @include col($i);
-
    }
+}
+
+[data-column="1"],
+[data-column="2"],
+[data-column="3"],
+[data-column="4"],
+[data-column="5"],
+[data-column="6"],
+[data-column="7"],
+[data-column="8"],
+[data-column="9"],
+[data-column="10"],
+[data-column="11"] {
+	@include breakpoint($bp-xs, $bp-md) {
+		@include col(12);
+	}
 }
 
 [data-column="auto"] {
