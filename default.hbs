@@ -39,10 +39,16 @@
     crossorigin="anonymous">
 </script>
 
-<script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
+<script src="{{asset "dist/js/scripts.js"}}"></script>
+<script src="{{asset "dist/js/app.js"}}"></script>
 
-<script src="{{asset "js/scripts.js"}}"></script>
-<script src="{{asset "js/app.js"}}"></script>
+<script type="module">
+  var swiper = new Swiper('.swiper', {
+    // Default parameters
+    slidesPerView: 1,
+    spaceBetween: 0
+  });
+</script>
 
 {{#if pagination.pages}}
 	<script>
@@ -60,6 +66,7 @@
 			var ratio = width / height;
 			container.style.flex = ratio + ' 1 0%';
 		});
+
 		$(document).ready(function () {
 			var $postContent = $(".gh-content");
 			$postContent.fitVids();

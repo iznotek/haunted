@@ -64,9 +64,8 @@ function devScripts(){
 function devModules(){
 	return src([
 		`${options.paths.src.js}/app.js`
-  ]).pipe(babel({
-    presets: ["@babel/preset-env"]
-  }))
+  ])
+  .pipe(concat({ path: 'app.js' }))
 	.pipe(dest(options.paths.dist.js));
 }
 
@@ -156,6 +155,6 @@ exports.default = series(
 
 	exports.prod = series(
 		prodClean, // Clean Build Folder
-		parallel(prodStyles, prodScripts, prodModules, prodImages, devFonts, prodHTML), //Run All tasks in parallel
+		parallel(prodStyles, prodScripts, prodModules, prodImages, prodFonts, prodHTML), //Run All tasks in parallel
 		buildFinish
 		);

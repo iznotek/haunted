@@ -41,5 +41,7 @@
 
 @import "views/article";
 
-@import "toolkit/flickity/flickity";
+/* purgecss start ignore */
+@import "toolkit/swiper/swiper";
 @import "toolkit/fslightbox/index";
+/* purgecss end ignore */
