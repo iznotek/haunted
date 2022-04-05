@@ -1,0 +1,4 @@
+.fslightbox-svg-path {
+  transition: fill 0.15s ease;
+  fill: #ddd;
+}

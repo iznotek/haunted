@@ -11,6 +11,8 @@ const imagemin = require('gulp-imagemin'); //To Optimize Images
 const cleanCSS = require('gulp-clean-css');//To Minify CSS files
 const purgecss = require('gulp-purgecss');// Remove Unused CSS from Styles
 
+const babel = require('gulp-babel');
+
 //Note : Webp still not supported in major browsers including forefox
 //const webp = require('gulp-webp'); //For converting images to WebP format
 //const replace = require('gulp-replace'); //For Replacing img formats to webp in html
@@ -61,9 +63,10 @@ function devScripts(){
 
 function devModules(){
 	return src([
-		`${options.paths.src.js}/modules/**/*.js`,
 		`${options.paths.src.js}/app.js`
-	]).pipe(concat({ path: 'app.js' }))
+  ]).pipe(babel({
+    presets: ["@babel/preset-env"]
+  }))
 	.pipe(dest(options.paths.dist.js));
 }
 
@@ -108,7 +111,10 @@ function prodStyles(){
 }
 
 function prodScripts(){
-	return src(`${options.paths.src.js}/libs/**/*.js`)
+  return src(`${options.paths.src.js}/libs/**/*.js`)
+  .pipe(babel({
+    presets: ["@babel/preset-env"]
+  }))
 	.pipe(concat({ path: 'scripts.js'}))
 	.pipe(uglify())
 	.pipe(dest(options.paths.build.js));
@@ -116,7 +122,6 @@ function prodScripts(){
 
 function prodModules(){
 	return src([
-		`${options.paths.src.js}/modules/**/*.js`
 		`${options.paths.src.js}/app.js`
 	])
 	.pipe(concat({ path: 'app.js'}))

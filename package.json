@@ -43,6 +43,7 @@
     "bugs": "https://github.com/TryGhost/Starter/issues",
     "dependencies": {
         "@waaark/luge": "^0.6.7-beta",
+        "babel": "^6.23.0",
         "fslightbox": "^3.3.1",
         "lightgallery": "^2.4.0",
         "postcss": "8.4.12",
@@ -51,14 +52,22 @@
         "uglify": "^0.1.5"
     },
     "devDependencies": {
+        "@babel/core": "^7.17.8",
+        "@babel/preset-env": "^7.16.11",
+        "@babel/register": "^7.17.7",
         "autoprefixer": "10.4.4",
+        "babel-jest": "^27.5.1",
+        "babel-loader": "^8.2.4",
+        "babel-polyfill": "^6.26.0",
         "beeper": "2.1.0",
         "browser-sync": "^2.27.9",
+        "core-js": "^3.21.1",
         "cssnano": "5.1.5",
         "del": "^6.0.0",
         "gsap": "^3.9.1",
         "gscan": "4.25.2",
         "gulp": "4.0.2",
+        "gulp-babel": "^8.0.0",
         "gulp-clean-css": "^4.3.0",
         "gulp-concat": "^2.6.1",
         "gulp-imagemin": "^7.1.0",
@@ -73,6 +82,7 @@
         "gulp-watch": "5.0.1",
         "gulp-webp": "^4.0.1",
         "gulp-zip": "5.1.0",
+        "jest": "^27.5.1",
         "log-symbols": "^4.1.0",
         "postcss-color-mod-function": "3.0.3",
         "postcss-easy-import": "4.0.0"

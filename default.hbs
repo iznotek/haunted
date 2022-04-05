@@ -39,9 +39,10 @@
     crossorigin="anonymous">
 </script>
 
+<script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
 
-<script src="{{asset "dist/js/scripts.js"}}"></script>
-<script src="{{asset "dist/js/app.js"}}"></script>
+<script src="{{asset "js/scripts.js"}}"></script>
+<script src="{{asset "js/app.js"}}"></script>
 
 {{#if pagination.pages}}
 	<script>
@@ -51,8 +52,8 @@
 
 {{#is "post, page"}}
 	<script>
-		var images = document.querySelectorAll('.kg-gallery-image img');
-		images.forEach(function (image) {
+		var imgs = document.querySelectorAll('.kg-gallery-image img');
+		imgs.forEach(function (image) {
 			var container = image.closest('.kg-gallery-image');
 			var width = image.attributes.width.value;
 			var height = image.attributes.height.value;
