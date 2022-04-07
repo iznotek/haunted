@@ -1,6 +1,7 @@
 {{!< default}}
 
 {{#post}}
+
 <article class="src-page {{post_class}}">
 
     <header class="src-page__header">
@@ -11,17 +12,24 @@
             <figcaption>{{feature_image_caption}}</figcaption>
           {{/if}}
         </figure>
-      {{/if}}
-
+        {{/if}}
       <h1 class="src-page__title">{{title}}</h1>
-      {{#if custom_excerpt}}
-        <p class="src-page__excerpt">{{custom_excerpt}}</p>
-      {{/if}}
     </header>
 
     <div class="src-page__content src-container">
       {{content}}
     </div>
 
+    <footer class="src-page__footer">
+
+      {{!--
+      <section class="src-article__post-comments">
+          If you want to embed comments, this is a good place to do it!
+      </section>
+      --}}
+
+    </footer>
+
 </article>
+
 {{/post}}

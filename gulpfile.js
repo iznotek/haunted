@@ -87,8 +87,9 @@ function devModules(){
 	return src([
 		`${options.paths.src.js}/app.js`
   ])
-  .pipe(concat({ path: 'app.js' }))
-	.pipe(dest(options.paths.dist.js));
+  .pipe(rename({ suffix: '.min' }))
+  .pipe(uglify())
+  .pipe(dest(asset_dist, { sourcemaps: '.' }));
 }
 
 function devImages(){
@@ -132,13 +133,24 @@ function prodStyles(){
 }
 
 function prodScripts(){
-  return src(`${options.paths.src.js}/libs/**/*.js`)
+  return src([
+    `${npm_src}/@waaark/luge/dist/js/luge.js`,
+    `${npm_src}/fslightbox/index.js`,
+    `${npm_src}/swiper/swiper-bundle.js`
+  ])
   .pipe(babel({
-    presets: ["@babel/preset-env"]
+    'presets': [
+      [
+        '@babel/preset-env', {
+          'modules': false
+        }
+      ]
+    ]
   }))
-	.pipe(concat({ path: 'scripts.js'}))
-	.pipe(uglify())
-	.pipe(dest(options.paths.build.js));
+  .pipe(concat('lib.js'))
+  .pipe(rename({ suffix: '.min' }))
+  .pipe(uglify())
+  .pipe(dest(asset_dist, { sourcemaps: '.' }));
 }
 
 function prodModules(){

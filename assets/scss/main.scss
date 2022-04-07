@@ -35,13 +35,11 @@
 
 /* purgecss start ignore */
 @import "modules/gallery";
-/* purgecss end ignore */
-
 @import "modules/footer";
 
 @import "views/article";
+@import "views/shop";
 
-/* purgecss start ignore */
 //@import "toolkit/swiper/swiper";
 @import "toolkit/fslightbox/index";
 /* purgecss end ignore */
