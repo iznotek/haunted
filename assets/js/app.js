@@ -6,7 +6,6 @@ $(document).ready(function () {
 	});
 });
 
-require('fslightbox');
 
 const images = document.querySelectorAll('.kg-image-card img, .kg-gallery-card img');
 

@@ -7,6 +7,7 @@ const sass = require('gulp-sass')(require('sass')); //For Compiling SASS files
 const postcss = require('gulp-postcss'); //For Compiling tailwind utilities with tailwind config
 const concat = require('gulp-concat'); //For Concatinating js,css files
 const uglify = require('gulp-terser');//To Minify JS files
+const rename = require('gulp-rename');
 const imagemin = require('gulp-imagemin'); //To Optimize Images
 const cleanCSS = require('gulp-clean-css');//To Minify CSS files
 const purgecss = require('gulp-purgecss');// Remove Unused CSS from Styles
@@ -17,6 +18,9 @@ const babel = require('gulp-babel');
 //const webp = require('gulp-webp'); //For converting images to WebP format
 //const replace = require('gulp-replace'); //For Replacing img formats to webp in html
 const logSymbols = require('log-symbols'); //For Symbolic Console logs :) :P
+
+const npm_src = options.paths.src.npm;
+const asset_dist = options.paths.dist.js;
 
 //Load Previews on Browser on dev
 function livePreview(done){
@@ -55,10 +59,28 @@ function devStyles(){
 }
 
 function devScripts(){
-	return src([
-		`${options.paths.src.js}/libs/**/*.js`
-	]).pipe(concat({ path: 'scripts.js' }))
-	.pipe(dest(options.paths.dist.js));
+//	return src([
+//		`${options.paths.src.js}/libs/**/*.js`
+//	]).pipe(concat({ path: 'scripts.js' }))
+//    .pipe(dest(options.paths.dist.js));
+  return src([
+    `${npm_src}/@waaark/luge/dist/js/luge.js`,
+    `${npm_src}/fslightbox/index.js`,
+    `${npm_src}/swiper/swiper-bundle.js`
+  ])
+  .pipe(babel({
+    'presets': [
+      [
+        '@babel/preset-env', {
+          'modules': false
+        }
+      ]
+    ]
+  }))
+  .pipe(concat('lib.js'))
+  .pipe(rename({ suffix: '.min' }))
+  .pipe(uglify())
+  .pipe(dest(asset_dist, { sourcemaps: '.' }));
 }
 
 function devModules(){

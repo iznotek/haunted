@@ -10,7 +10,8 @@ module.exports = {
 			css: "assets/scss",
 			js: "assets/js",
 			img: "assets/img",
-			fonts: "assets/fonts"
+      fonts: "assets/fonts",
+      npm: "node_modules"
 		},
 		dist: {
 			base: "assets/dist",
