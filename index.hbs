@@ -1,13 +1,17 @@
 {{!< default}}
 
+
+
 	<section class="src-page">
-		<div class="src-container">
-			<div class="src-postfeed flex flex-row">
+
+			<div class="src-postfeed">
+        {{#get "posts" limit="4" filter="featured:false"}}
 				{{#foreach posts}}
 
 					{{> "card"}} {{!-- partials/card.hbs --}}
 
 				{{/foreach}}
+        {{/get}}
 			</div>
-		</div>
+
 	</section>

@@ -46,6 +46,35 @@
 <script src="{{asset "dist/js/app.min.js"}}"></script>
 
 <script type="module">
+  /* Custom reveal */
+  luge.reveal.add("in", "myReveal", (element) => {
+    gsap.fromTo(
+      element,
+      {
+        opacity: 0,
+        x: -500
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "ease.out"
+      }
+    );
+  });
+
+  luge.reveal.add("out", "myReveal", (element) => {
+    gsap.to(element, {
+      opacity: 0,
+      x: 500,
+      duration: 1,
+      ease: "ease.in"
+    });
+  });
+
+</script>
+
+<script type="module">
   var swiper = new Swiper('.swiper', {
     // Default parameters
     slidesPerView: 1,

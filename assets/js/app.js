@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 	// Mobile Menu Trigger
 	$('.gh-burger').click(function () {
