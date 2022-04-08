@@ -11,25 +11,23 @@
   //display: grid;
   //grid-template-columns: var(--grid_adapt_mixin);
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-template-columns: repeat(9, 1fr);
   &__item {
+    margin: 0 !important;
     &.i-01 {
-      grid-area: 1 / 1 / 7 / 7;
+      grid-column: span 6;
     }
     &.i-02 {
-      grid-area: 1 / 7 / 4 / 10;
+      grid-column: span 3;
     }
     &.i-03 {
-      grid-area: 1 / 10 / 4 / 13;
+      grid-column: span 3;
     }
     &.i-04 {
-      grid-area: 4 / 7 / 7 / 10;
+      grid-column: span 3;
     }
     &.i-05 {
-      grid-area: 4 / 10 / 7 / 13;
+      grid-column: span 3;
     }
   }
 }
