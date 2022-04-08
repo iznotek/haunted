@@ -19,6 +19,7 @@
 @import "utility/animations";
 @import "utility/gradients";
 @import "utility/overlay";
+@import "utility/transitions";
 
 @import "helpers/ion-icons";
 
@@ -33,10 +34,12 @@
 @import "modules/nav";
 @import "modules/hero";
 
+
 /* purgecss start ignore */
 @import "modules/gallery";
 @import "modules/footer";
 
+@import "views/page";
 @import "views/article";
 @import "views/shop";
 

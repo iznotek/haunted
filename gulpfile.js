@@ -182,13 +182,13 @@ function buildFinish(done){
 
 exports.default = series(
 	devClean, // Clean Dist Folder
-	parallel(devStyles, devScripts, devModules, devImages, devFonts, devHTML), //Run All tasks in parallel
+	parallel(devStyles, devScripts, devModules, devImages, devFonts), //Run All tasks in parallel
 	livePreview, // Live Preview Build
 	watchFiles // Watch for Live Changes
 	);
 
-	exports.prod = series(
-		prodClean, // Clean Build Folder
-		parallel(prodStyles, prodScripts, prodModules, prodImages, prodFonts, prodHTML), //Run All tasks in parallel
-		buildFinish
-		);
+exports.prod = series(
+  prodClean, // Clean Build Folder
+  parallel(prodStyles, prodScripts, prodModules, prodImages, prodFonts), //Run All tasks in parallel
+  buildFinish
+);

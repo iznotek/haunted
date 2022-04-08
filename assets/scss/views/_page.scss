@@ -1,0 +1,20 @@
+.src-page {
+  @apply relative;
+  &__header {
+    @apply relative w-full max-h-[50vh] overflow-hidden;
+  }
+  &__feature-image {
+    @apply overflow-hidden;
+    > img {
+      @apply w-full h-full object-cover object-center;
+    }
+  }
+  &__title {
+    @apply items-center;
+    background: $gr-metallic-fade;
+  }
+
+  &__content {
+    @apply relative w-full h-full py-8;
+  }
+}

@@ -4,20 +4,24 @@
 
 <article class="src-page {{post_class}}">
 
-    <header class="src-page__header">
+    <header class="src-page__header" data-flex="row">
       {{#if feature_image}}
-        <figure class="src-page__feature-image">
+        <figure class="src-page__feature-image" data-column="7">
           <img src="{{feature_image}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
           {{#if feature_image_caption}}
             <figcaption>{{feature_image_caption}}</figcaption>
           {{/if}}
         </figure>
-        {{/if}}
-      <h1 class="src-page__title">{{title}}</h1>
+      {{/if}}
+      <div class="src-page__title" data-column="5">
+        <h1>{{title}}</h1>
+      </div>
     </header>
 
-    <div class="src-page__content src-container">
-      {{content}}
+    <div class="src-page__content">
+      <div class="src-shop">
+        {{content}}
+      </div>
     </div>
 
     <footer class="src-page__footer">

@@ -3,13 +3,14 @@
 		display: flex;
 	}
 }
+
 .src-hero {
 	@apply relative z-10 w-full h-full max-h-[65vh] overflow-hidden flex flex-row;
 	display: none;
   &__bg {
-		@apply absolute z-0;
+		@apply absolute z-0 mix-blend-hard-light;
 		&-img {
-			@apply opacity-60 contrast-125 blur-[3px] saturate-50 mix-blend-hard-light;
+			@apply opacity-40 blur-sm contrast-125 saturate-50;
 		}
 	}
 	.src-parallax-bg {

@@ -45,6 +45,7 @@
         "@waaark/luge": "^0.6.7-beta",
         "babel": "^6.23.0",
         "fslightbox": "^3.3.1",
+        "jarallax": "^2.0.3",
         "lightgallery": "^2.4.0",
         "postcss": "8.4.12",
         "sass": "^1.49.9",
